@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFS OS Download</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .container {
+            margin: 0;
+            padding: 20px;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            padding-top: 60px;
+            transition: 0.3s;
+        }
+        .menu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+        }
+        .menu a:hover {
+            background-color: #575757;
+        }
+        .open-menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background-color: #4CAF50;
+            padding: 10px;
+        }
+        .content {
+            margin-left: 0;
+            transition: margin-left 0.3s;
+        }
+        .show-menu .menu {
+            left: 0;
+        }
+        .show-menu .content {
+            margin-left: 250px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="open-menu-btn" onclick="toggleMenu()">&#9776;</span>
+        TFS OS Download Center
+    </header>
+
+    <div class="menu" id="sideMenu">
+        <button onclick="toggleMenu()" style="margin: 10px; padding: 5px 10px; background-color: #f44336; color: white; border: none; cursor: pointer; border-radius: 5px;">Close Menu</button>
+
+        <a href="#" onclick="showVersion('13')">TFS OS Version 13</a>
+        <a href="#" onclick="showVersion('14')">TFS OS Version 14</a>
+        <a href="#" onclick="showVersion('15')">TFS OS Version 15</a>
+    </div>
+
+    <div class="content" id="mainContent">
+        <div class="container">
+            <h2>Welcome to the TFS OS Download Center</h2>
+            <p>Select a version from the menu to download and view more details.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 TFS OS. All rights reserved.
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('show-menu');
+        }
+
+        function showVersion(version) {
+            let content = document.getElementById('mainContent');
+            let versionInfo = '';
+            if (version === '13') {
+                versionInfo = `
+                    <h2>TFS OS Version 13</h2>
+                    <p>Details and download options for TFS OS Version 13.</p>
+                    <a href="https://drive.google.com/file/d/1DOlOPNoD4hayzrqEq8h7HgE0dTxkMu-R/view?usp=drivesdk" target="_blank">Download TFS OS Version 13</a>
+                `;
+            } else if (version === '14') {
+                versionInfo = `
+                    <h2>TFS OS Version 14</h2>
+                    <p>Details and download options for TFS OS Version 14.</p>
+                    <a href="https://drive.google.com/file/d/169-rqKQ71SPxL51s4dR1i885L5MkJ4Pb/view?usp=drivesdk" target="_blank">Download TFS OS Version 14</a>
+                `;
+            } else if (version === '15') {
+                versionInfo = `
+                    <h2>TFS OS Version 15</h2>
+                    <p>Details and download options for TFS OS Version 15.</p>
+                    <a href="https://drive.google.com/file/d/1Kvd4ryhwZRm9zD47wz4kSlqff8JkQI2N/view?usp=drivesdk" target="_blank">Download TFS OS Version 15</a>
+                `;
+            }
+            content.innerHTML = `<div class="container">${versionInfo}</div>`;
+        }
+    </script>
+
+</body>
+</html>
