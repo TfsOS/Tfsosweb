@@ -71,6 +71,19 @@
         .show-menu .content {
             margin-left: 250px;
         }
+        .download-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -111,22 +124,31 @@
                 versionInfo = `
                     <h2>TFS OS Version 13</h2>
                     <p>Details and download options for TFS OS Version 13.</p>
-                    <a href="https://drive.google.com/file/d/1DOlOPNoD4hayzrqEq8h7HgE0dTxkMu-R/view?usp=drivesdk" target="_blank">Download TFS OS Version 13</a>
+                    <button class="download-btn" onclick="downloadFile('/tfsos32bit.zip')">Download TFS OS Version 13</button>
                 `;
             } else if (version === '14') {
                 versionInfo = `
                     <h2>TFS OS Version 14</h2>
                     <p>Details and download options for TFS OS Version 14.</p>
-                    <a href="https://drive.google.com/file/d/169-rqKQ71SPxL51s4dR1i885L5MkJ4Pb/view?usp=drivesdk" target="_blank">Download TFS OS Version 14</a>
+                    <button class="download-btn" onclick="downloadFile('/Tfsos14.zip')">Download TFS OS Version 14</button>
                 `;
             } else if (version === '15') {
                 versionInfo = `
                     <h2>TFS OS Version 15</h2>
                     <p>Details and download options for TFS OS Version 15.</p>
-                    <a href="https://drive.google.com/file/d/1Kvd4ryhwZRm9zD47wz4kSlqff8JkQI2N/view?usp=drivesdk" target="_blank">Download TFS OS Version 15</a>
+                    <button class="download-btn" onclick="downloadFile('/https://Tfsos15.5release1.0.zip')">Download TFS OS Version 15</button>
                 `;
             }
             content.innerHTML = `<div class="container">${versionInfo}</div>`;
+        }
+
+        function downloadFile(filePath) {
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = filePath.split('/').pop();  // Extract file name from path
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
 
