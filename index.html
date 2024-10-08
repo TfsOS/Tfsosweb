@@ -99,6 +99,7 @@
         <a href="#" onclick="showVersion('13')">TFS OS Version 13</a>
         <a href="#" onclick="showVersion('14')">TFS OS Version 14</a>
         <a href="#" onclick="showVersion('15')">TFS OS Version 15</a>
+        <a href="#" onclick="showVersion('16')">TFS OS Version 16 (pre-release)</a>
     </div>
 
     <div class="content" id="mainContent">
@@ -138,7 +139,14 @@
                     <p>Details and download options for TFS OS Version 15.</p>
                     <button class="download-btn" onclick="downloadFile('/https://Tfsos15.5release1.0.zip')">Download TFS OS Version 15</button>
                 `;
+          } else if (version === '16') {
+                versionInfo = `
+                <h2>TFS OS Version 16 (Pre-Release)</h2>
+                <p>details and Download options for TFS OS Version 16.</p>
+                <button class="download-btn" onclick="downloadFile('/https://Tfsos15.5release1.0.zip')">Download TFS OS Version 16</button>
+                `;    
             }
+    
             content.innerHTML = `<div class="container">${versionInfo}</div>`;
         }
 
